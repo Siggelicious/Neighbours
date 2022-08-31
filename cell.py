@@ -22,9 +22,11 @@ class Cell:
             self.state = Cell.State.NA
         else:
             total = same = 0
+            
             for neighbour in self.neighbours:
                 if neighbour.type != Cell.Type.VACANT:
                     total += 1
+            
                     if neighbour.type == self.type:
                         same += 1
             

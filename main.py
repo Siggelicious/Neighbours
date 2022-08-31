@@ -19,8 +19,10 @@ def main():
     quit = False
     event = SDL_Event()
     target_frame_time = ctypes.c_uint32(1000 // settings.FRAMES_PER_SECOND)
+    
     while not quit:
         frame_start = ctypes.c_uint32(SDL_GetTicks())
+        
         while SDL_PollEvent(ctypes.byref(event)) != 0:
             if event.type == SDL_QUIT:
                 quit = True
@@ -30,6 +32,7 @@ def main():
         graphics.present()
         frame_end = ctypes.c_uint32(SDL_GetTicks())
         frame_time = frame_end - frame_start
+        
         if frame_time < target_frame_time:
             SDL_Delay(target_frame_time - frame_time)
     

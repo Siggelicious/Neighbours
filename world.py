@@ -17,9 +17,11 @@ class World:
     def __init__(self):
         self.cell_size = (settings.WINDOW_SIZE[0] // settings.COLS, settings.WINDOW_SIZE[1] // settings.ROWS)
         self.grid = [[Cell() for col in range(settings.COLS)] for row in range(settings.ROWS)]
+        
         for row in range(settings.ROWS):
             for col in range(settings.COLS):
                 cell = self.grid[row][col]
+                
                 if random.random() > settings.VACANT_INCIDENCE:
                     if random.random() <= settings.RED_INCIDENCE:
                         cell.type = Cell.Type.RED
@@ -61,6 +63,7 @@ class World:
 
     def render(self, graphics):
         graphics.fill_rect((0, 0, settings.WINDOW_SIZE[0], settings.WINDOW_SIZE[1]), (0, 0, 0, 255))
+        
         for row in range(settings.ROWS):
             for col in range(settings.COLS):
                 cell = self.grid[row][col]
