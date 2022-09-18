@@ -51,6 +51,7 @@ class World:
                     if agent.state == Cell.State.UNSATISFIED:
                         unsatisfied.append(agent)
 
+        num_unsatisfied = len(unsatisfied)
         while len(unsatisfied) > 0 and len(vacant) > 0:
             origin = unsatisfied.pop(random.randint(0, len(unsatisfied) - 1))
             dest = vacant.pop(random.randint(0, len(vacant) - 1))
@@ -60,6 +61,8 @@ class World:
             dest.refresh_state()
             origin.broadcast_type_change()
             dest.broadcast_type_change()
+        
+        return 1 - num_unsatisfied / (settings.ROWS * settings.COLS) 
 
     def render(self, graphics):
         graphics.fill_rect((0, 0, settings.WINDOW_SIZE[0], settings.WINDOW_SIZE[1]), (0, 0, 0, 255))

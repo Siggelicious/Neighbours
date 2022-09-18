@@ -1,10 +1,8 @@
+# Module containing all the code for class 'Graphics'.
 from sdl2 import *
 import settings
 
 class Graphics:
-    window = None
-    renderer = None
-
     def __init__(self):
         SDL_Init(SDL_INIT_VIDEO)
         self.window = SDL_CreateWindow(
