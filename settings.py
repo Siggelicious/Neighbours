@@ -1,3 +1,4 @@
+# Everything here should be self-explanatory.
 WINDOW_SIZE = (800, 800)
 FRAMES_PER_SECOND = 1000
 ROWS = 50 

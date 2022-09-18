@@ -11,7 +11,7 @@ class Cell:
 
     # Enum that defines the cell's state. A cell that is not vacant be either satisfied or unsatisfied. A cell that is vacant will always have the state 'NA' (non-applicable). 
     class State(enum.Enum): # inherits from enum.Enum. Brings some nice QoL functions. 
-        NA = enum.auto(), # The enum.auto() function returns a signed integer > 0.
+        NA = enum.auto(), # The 'enum.auto()' function returns a signed integer > 0.
         SATISFIED = enum.auto(),
         UNSATISFIED = enum.auto()
 
